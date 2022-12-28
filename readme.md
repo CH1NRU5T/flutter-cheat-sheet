@@ -21,7 +21,7 @@ TextButton.icon(
       onPressed: () {},
       icon: // type : widget
       // google icon
-      label: Text('hello'),
+      label: Text('Continue with Google'),
       style: TextButton.styleFrom(
         padding: EdgeInsets.symmetric(
           vertical: 15,
@@ -33,8 +33,33 @@ TextButton.icon(
           side: const BorderSide(
             width: 3,
             color: Colors.grey,
-          ),
         ),
       ),
-    );
+    ),
+);
+```
+
+## TextFormField
+
+![textformfield](./images/textformfield.png)
+
+```dart
+TextFormField(
+    decoration: InputDecoration(
+    hintText: 'Email',
+    contentPadding: const EdgeInsets.all(27),
+    enabledBorder: const OutlineInputBorder(
+      borderSide: BorderSide(
+        color: /*some border color*/,
+        width: 2,
+      ),
+    ),
+    focusedBorder: const OutlineInputBorder(
+      borderSide: BorderSide(
+        color: /*some gradient color for outline*/,
+        width: 2,
+      ),
+    ),
+  ),
+),
 ```
