@@ -39,6 +39,33 @@ TextButton.icon(
 );
 ```
 
+### To make the icon come right side, wrap the widget in `Directionality` widget and set textDirection:
+```dart
+Directionality(
+      textDirection: TextDirection.rtl, // this makes the icon go to right
+      child: TextButton.icon(
+      onPressed: () {},
+      icon: // type : widget
+      // google icon
+      label: Text('Continue with Google'),
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.symmetric(
+          vertical: 15,
+          horizontal: horizontalPadding,
+          // take horizontal padding from constructor
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+          side: const BorderSide(
+            width: 3,
+            color: Colors.grey,
+        ),
+      ),
+    ),
+);
+)
+```
+
 ## TextFormField
 
 ![textformfield](./images/textformfield.png)
