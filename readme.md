@@ -39,7 +39,8 @@ TextButton.icon(
 );
 ```
 
-### To make the icon come right side, wrap the widget in `Directionality` widget and set textDirection:
+### To make the icon come right side, wrap the widget in `Directionality` widget and set textDirection
+
 ```dart
 Directionality(
       textDirection: TextDirection.rtl, // this makes the icon go to right
@@ -89,4 +90,30 @@ TextFormField(
     ),
   ),
 ),
+```
+
+## Google Sign In
+
+```dart
+signInWithGoogle() async {
+    // begin interactive sign in process
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    // obtain auth details from request
+    final GoogleSignInAuthentication gAuth = await googleUser!.authentication;
+    // create a new credential for the user
+    final credential = GoogleAuthProvider.credential(
+        accessToken: gAuth.accessToken, idToken: gAuth.idToken);
+    // finallyy, let's sign in
+    UserCredential user =
+        await FirebaseAuth.instance.signInWithCredential(credential);
+
+    return user;
+  }
+
+
+  // signout
+  signOut() async {
+    await GoogleSignIn().disconnect();
+    await FirebaseAuth.instance.signOut();
+  }
 ```
